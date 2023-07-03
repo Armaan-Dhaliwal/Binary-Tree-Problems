@@ -71,15 +71,20 @@ int Depth(BinaryTree<int>* root){
     return 1+max(Depth(root->left),Depth(root->right));
 }
 
+
 bool TreeBalance(BinaryTree<int>* root){
-    if(root==NULL){
+    bool res=false;
+        if(root==NULL){
         return true;
     }
 
     if(abs(Depth(root->left)-Depth(root->right))<=1){
-        return true;
+        res = TreeBalance(root->left) && TreeBalance(root->right);
     }
-    return false;
+    else{
+        res=false;
+    }
+    return res;
 }
 
 int main(){
