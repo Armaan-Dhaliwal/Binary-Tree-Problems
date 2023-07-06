@@ -63,13 +63,15 @@ void PrintTree_Level(BinaryTree<int>* root){
 
 }
     void Mirror(BinaryTree<int>* root, BinaryTree<int>* Mirror_root){
-    if(root->left==NULL){
+    if(root->left==NULL && root->right==NULL){
         return ;
     }
-    BinaryTree<int>* temp1 = new BinaryTree<int>(root->left->data);
-    Mirror_root->right=temp1;
-   Mirror(root->left,Mirror_root->right);
-
+    if(root->left!=NULL){
+        BinaryTree<int>* temp1 = new BinaryTree<int>(root->left->data);
+        Mirror_root->right=temp1;
+        Mirror(root->left,Mirror_root->right);
+    }
+    
     if(root->right==NULL){
         return ;
     }
