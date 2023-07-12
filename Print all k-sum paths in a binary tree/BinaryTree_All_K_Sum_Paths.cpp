@@ -56,7 +56,6 @@ void K_Sum_Paths(BinaryTree<int>* root, int k,vector<int> &path){
             cout<<endl;
         }
    }
-
     path.pop_back();
     return;   
 }
